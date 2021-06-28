@@ -1,0 +1,15 @@
+---
+application:
+  name: "jardininfantilantilaf"
+  project: "jardin-antilaf"
+  organization: "QoveryCommunity"
+databases:
+- type: "MYSQL"
+  name: "jardin-antilaf"
+  version: "8.0"
+routers:
+- name: "main-jardininfantilantilaf"
+  routes:
+  - application_name: "jardininfantilantilaf"
+    paths:
+    - "/*"
