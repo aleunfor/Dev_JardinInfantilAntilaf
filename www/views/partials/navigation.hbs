@@ -1,0 +1,193 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light barra-nav">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="/"><img width="55px;" class="me-2" src="/img/logo.png">Jardin
+            Antilaf</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span style="font-size: medium;">Menu</span>&nbsp;<span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            {{#if user}}
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 d-flex">
+                <li class="nav-item">
+                    <a class="nav-link px-3" aria-current="page" href="/">Inicio</a>
+                </li>
+                <!-- Cuando es Admin se despliega -->
+                {{#when user.id_tipousuario 'eq' 1}}
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle px-3" href="#" id="navbarDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">Panel de Administración</a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="/administrador/agregar-usuario">Agregar usuario</a></li>
+                        <li><a class="dropdown-item" href="/administrador/ver-usuarios">Ver usuarios</a></li>  
+                        <li><a class="dropdown-item" href="/administrador/agregar-ninio">Agregar Niño(a)</a></li> 
+                        <li><a class="dropdown-item" href="/administrador/ver-ninios">Ver Niños(as)</a></li>                       
+                        <li><a class="dropdown-item" href="/administrador/ver-comunicados">Ver Comunicados</a></li>
+                        <li><a class="dropdown-item" href="/comunicados/agregar-comunicado">Agregar Comunicado</a></li>
+                        <li><a class="dropdown-item" href="/comunicados/mis-comunicados">Mis Comunicados</a></li>
+                    </ul>
+                </li>
+                {{/when}}
+
+                <!-- Cuando es Directivo se despliega -->
+                {{#when user.id_tipousuario 'eq' 2}}
+                <li class="nav-item ">
+                    <a class="nav-link rounded px-3" href="/comunicados/mis-comunicados">Ver mis
+                        comunicados</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link rounded px-3" href="/comunicados/agregar-comunicado">Agregar
+                        Comunicado</a>
+                </li>
+                {{/when}}
+
+                <!-- Cuando es Parvulario se despliega -->
+                {{#when user.id_tipousuario 'eq' 3}}
+                <li class="nav-item ">
+                    <a class="nav-link rounded px-3" href="/comunicados/mis-comunicados">Ver mis
+                        comunicados</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link rounded px-3" href="/comunicados/agregar-comunicado">Agregar
+                        Comunicado</a>
+                </li>
+                {{/when}}
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle btn-primary rounded px-3 text-center fw-bold" href="#"
+                        id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i
+                            class="fas fa-user"></i>&nbsp; Hola! {{user.nombre}}</a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="/perfil">Ver mi perfil</a></li>
+                        <li><a class="dropdown-item" href="/cambio-contrasena">Cambiar Contraseña</a></li>
+                        <li><a class="dropdown-item" href="/cerrar-sesion">Cerrar Sesión</a></li>
+                    </ul>
+                </li>
+            </ul>
+            {{else}}
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 d-flex">
+                <li class="nav-item">
+                    <a class="nav-link px-3" aria-current="page" href="/">Inicio</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link btn-primary rounded px-3 text-center fw-bold" href="/login"><i
+                            class="fas fa-user"></i>&nbsp; Iniciar Sesión</a>
+                </li>
+                <li class="nav-item">
+
+                </li>
+
+            </ul>
+            {{/if}}
+
+            <!--<form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>-->
+        </div>
+    </div>
+</nav>
+
+<!--Mobile menu-->
+{{#if user}}
+<div class="row mobile-menu position-fixed bottom-0">
+    {{#when user.id_tipousuario 'eq' 1}}
+    <div class="columna-mobile w-25">
+        <a href="/administrador/ver-usuarios" class="btn btn-primary btn-mobile-menu">
+            <i class="fas fa-user"></i>
+            <p class="text-btn-mobile">Usuarios</p>
+        </a>
+    </div>
+    <div class="columna-mobile w-25">
+        <a href="/administrador/agregar-usuario" class="btn btn-primary btn-mobile-menu">
+            <i class="fas fa-user-plus"></i>
+            <p class="text-btn-mobile">Agregar Usuario</p>
+        </a>
+    </div>
+    <div class="columna-mobile w-25">
+        <a href="/administrador/ver-comunicados" class="btn btn-primary btn-mobile-menu">
+            <i class="far fa-newspaper"></i>
+            <p class="text-btn-mobile">Comunicados</p>
+        </a>
+    </div>
+    <div class="columna-mobile w-25">
+        <a href="/cerrar-sesion" class="btn btn-primary btn-mobile-menu">
+            <i class="fas fa-power-off"></i>
+            <p class="text-btn-mobile">Cerrar Sesión</p>
+        </a>
+    </div>
+    {{/when}}
+    {{#when user.id_tipousuario 'eq' 2}}
+    <div class="columna-mobile-parvulario w-25">
+        <a href="/perfil" class="btn btn-primary btn-mobile-menu">
+            <i class="fas fa-user"></i>
+            <p class="text-btn-mobile">{{user.nombre}}</p>
+        </a>
+    </div>
+    <div class="columna-mobile-parvulario w-25">
+        <a href="/comunicados/agregar-comunicado" class="btn btn-primary btn-mobile-menu">
+            <i class="fas fa-plus-square"></i>
+            <p class="text-btn-mobile">Agregar Comunicado</p>
+        </a>
+    </div>
+    <div class="columna-mobile-parvulario w-25">
+        <a href="/comunicados/mis-comunicados" class="btn btn-primary btn-mobile-menu">
+            <i class="far fa-newspaper"></i>
+            <p class="text-btn-mobile">Mis Comunicados</p>
+        </a>
+    </div>
+    <div class="columna-mobile w-25">
+        <a href="/cerrar-sesion" class="btn btn-primary btn-mobile-menu">
+            <i class="fas fa-power-off"></i>
+            <p class="text-btn-mobile">Cerrar Sesión</p>
+        </a>
+    </div>
+    {{/when}}
+    {{#when user.id_tipousuario 'eq' 3}}
+    <div class="columna-mobile-parvulario w-25">
+        <a href="/perfil" class="btn btn-primary btn-mobile-menu">
+            <i class="fas fa-user"></i>
+            <p class="text-btn-mobile">{{user.nombre}}</p>
+        </a>
+    </div>
+    <div class="columna-mobile-parvulario w-25">
+        <a href="/comunicados/agregar-comunicado" class="btn btn-primary btn-mobile-menu">
+            <i class="fas fa-plus-square"></i>
+            <p class="text-btn-mobile">Agregar Comunicado</p>
+        </a>
+    </div>
+    <div class="columna-mobile-parvulario w-25">
+        <a href="/comunicados/mis-comunicados" class="btn btn-primary btn-mobile-menu">
+            <i class="far fa-newspaper"></i>
+            <p class="text-btn-mobile">Mis Comunicados</p>
+        </a>
+    </div>
+    <div class="columna-mobile w-25">
+        <a href="/cerrar-sesion" class="btn btn-primary btn-mobile-menu">
+            <i class="fas fa-power-off"></i>
+            <p class="text-btn-mobile">Cerrar Sesión</p>
+        </a>
+    </div>
+    {{/when}}
+    {{#when user.id_tipousuario 'eq' 4}}
+    <div class="columna-mobile-parvulario">
+        <a href="/perfil" class="btn btn-primary btn-mobile-menu">
+            <i class="fas fa-user"></i>
+            <p class="text-btn-mobile">{{user.nombre}}</p>
+        </a>
+    </div>
+    <div class="columna-mobile-parvulario">
+        <a href="/" class="btn btn-primary btn-mobile-menu">
+            <i class="far fa-newspaper"></i>
+            <p class="text-btn-mobile">Ver Comunicados</p>
+        </a>
+    </div>
+    <div class="columna-mobile-parvulario">
+        <a href="/cerrar-sesion" class="btn btn-primary btn-mobile-menu">
+            <i class="fas fa-power-off"></i>
+            <p class="text-btn-mobile">Cerrar Sesión</p>
+        </a>
+    </div>
+    {{/when}}
+</div>
+{{/if}}

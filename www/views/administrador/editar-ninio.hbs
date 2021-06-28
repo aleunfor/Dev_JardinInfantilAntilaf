@@ -1,0 +1,95 @@
+{{>navegacion-admin}}
+<div class="container p-4">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <h1>Agregar y Asignar Niño(a)</h1>
+            <input value="{{ninos.sexo}}" id="sexoIn" class="d-none" type="text" rows="5" size="5" name="sexoIn">
+            <input value="{{ninos.nivel}}" id="nivelIn" class="d-none" type="text" rows="5" size="5" name="nivelIn">
+            <input value="{{ninos.idApoderado}}" id="apoderadoIn" class="d-none" type="text" rows="5" size="5" name="apoderadoIn">
+            <div class="card w-100">
+                <div class="card-body">
+                    <form name="formEditKid" action="/administrador/agregar-ninio" method="POST">
+                        <div class="form-group mb-2">
+                            <input value="{{ninos.rut}}" id="rut" type="text" class="form-control" name="rut" placeholder="RUT" autofocus>
+                        </div>
+                        <div class="form-group mb-2">
+                            <input value="{{ninos.nombre}}" type="text" class="form-control" name="nombre" placeholder="Nombre">
+                        </div>
+                        <div class="form-group mb-2">
+                            <input value="{{ninos.apellido}}" class="form-control" type="text" rows="5" size="5" name="apellido"
+                                placeholder="Apellido">
+                        </div>
+                        <div class="form-group mb-2">
+                            <input value="{{ninos.edad}}" class="form-control" type="number" rows="5" size="5" name="edad"
+                                placeholder="Edad">
+                        </div>
+                        <div class="form-group mb-2">
+                            <label for="fecha_nac">Fecha de Nacimiento</label>
+                            <input value="{{ninos.fecha_nac}}" class="form-control" type="date" rows="5" size="5" name="fecha_nac">
+                        </div>
+                        <script>
+                            // seleccionamos el valor de un input invisible
+                            // segun el valor, se despliega el rol
+                            $(document).ready(function () {
+                                let sexo = $('#sexoIn').val();
+                                if (rol == 1) {
+                                    $("#sexo option[value='Masculino']").attr("selected", true);
+                                } else if (rol == 2) {
+                                    $("#sexo option[value='Femenino']").attr("selected", true);
+                                } 
+                            });
+                        </script>
+                        <div class="form-group mb-2">
+                            <label for="sexo">Sexo</label>
+                            <select id="nivel" class="form-select" name="sexo">
+                                <option value="Masculino">Masculino</option>
+                                <option value="Femenino">Femenino</option>
+                            </select>
+                        </div>
+                        <script>
+                            // seleccionamos el valor de un input invisible
+                            // segun el valor, se despliega el rol
+                            $(document).ready(function () {
+                                let nivel = $('#nivelIn').val();
+                                if (rol == 1) {
+                                    $("#nivel_idnivel option[value=1]").attr("selected", true);
+                                } else if (rol == 2) {
+                                    $("#nivel_idnivel option[value=2]").attr("selected", true);
+                                } 
+                            });
+                        </script>
+                        <div class="form-group mb-2">
+                            <label for="nivel_idnivel">Nivel</label>
+                            <select id="nivel_idnivel" class="form-select" name="nivel_idnivel">
+                                <option value="1">Sala Cuna</option>
+                                <option value="2">Nivel Medio</option>
+                            </select>
+                        </div> 
+                        <script>
+                            // seleccionamos el valor de un input invisible
+                            // segun el valor, se despliega el rol
+                            $(document).ready(function () {
+                                let apoderado = $('#apoderadoIn').val();
+                                $("#nivel_idnivel option[value="+apoderado+"]").attr("selected", true);
+                            });
+                        </script>    
+                        <div class="form-group mb-2">
+                            <label for="usuario_idusuario">Apoderado</label>
+                            <select class="form-select" name="usuario_idusuario">
+                                <option value="">Sin Asignar</option>
+                                {{#each apoderados}}
+                                    <option value="{{idusuario}}">{{rut}} {{nombre}} {{apellido}}</option>
+                                {{/each}}
+                            </select>
+                        </div>                   
+                        <div class="form-group mb-2">
+                            <button id="editKid" class="btn btn-success w-100" disabled>Agregar y Asignar Niñ@</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/js/sidebar.js" crossorigin="anonymous"></script>
+<script src="/js/editKidValidation.js" crossorigin="anonymous"></script>

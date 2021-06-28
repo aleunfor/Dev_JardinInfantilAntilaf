@@ -1,0 +1,29 @@
+{{>navegacion-admin}}
+<div class="container">
+    <table class="table table-responsive">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Autor</th>
+                <th scope="col">Comunicado</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each comentarios}}
+            <tr>
+                <th scope="row">{{idcomentario}}</th>
+                <td>{{nombre}} {{apellido}}</td>
+                <td>{{comentario}}</td>
+                <td><a href="/administrador/ver-comunicados/ver-comentarios/eliminar-comentario/{{idcomentario}}" class="btn btn-danger">Eliminar</a></td>
+            </tr>
+            {{else}}
+            <div class="row ms-1 col-md-4 position-absolute top-50 start-50 translate-middle">
+                <div class="card card-body text-center">
+                    <p>Vaya! Aún no hay comentarios!</p>
+                </div>
+            </div>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
+<script src="/js/sidebar.js" crossorigin="anonymous"></script>

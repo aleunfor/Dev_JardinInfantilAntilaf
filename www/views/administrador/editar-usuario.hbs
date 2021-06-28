@@ -1,0 +1,98 @@
+{{>navegacion-admin}}
+<div class="container p-4">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <h1>Editar usuario</h1>
+            <input value="{{usuario.id_tipousuario}}" id="rol" class="d-none" type="text" rows="5" size="5" name="rol">
+            <input value="{{usuario.activado}}" id="activo" class="d-none" type="text" rows="5" size="5" name="activado">
+            <div class="card w-100">
+                <div class="card-body">
+                    <form name="formEditUser" action="/administrador/editar-usuario/{{usuario.idusuario}}" method="POST">
+                        <div class="form-group mb-2">
+                            <input id="rut" value="{{usuario.rut}}" type="text" class="form-control" name="rut" placeholder="RUT"
+                                autofocus>
+                        </div>
+                        <div class="form-group mb-2">
+                            <input value="{{usuario.nombre}}" type="text" class="form-control" name="nombre"
+                                placeholder="Nombre">
+                        </div>
+                        <div class="form-group mb-2">
+                            <input value="{{usuario.apellido}}" class="form-control" type="text" rows="5" size="5"
+                                name="apellido" placeholder="Apellido">
+                        </div>
+                        <div class="form-group mb-2">
+                            <label for="fecha_nac">Fecha de Nacimiento</label>
+                            <input value="{{usuario.fecha_nac}}" class="form-control" type="date" rows="5" size="5"
+                                name="fecha_nac">
+                        </div>
+                        <div class="form-group mb-2">
+                            <input value="{{usuario.direccion}}" class="form-control" type="text" rows="5" size="5"
+                                name="direccion" placeholder="Dirección">
+                        </div>
+                        <div class="form-group mb-2">
+                            <input value="{{usuario.telefono}}" class="form-control" type="text" rows="5" size="5"
+                                name="telefono" placeholder="Teléfono">
+                        </div>
+                        <div class="form-group mb-2">
+                            <input value="{{usuario.username}}" class="form-control" type="text" rows="5" size="5"
+                                name="username" placeholder="Email">
+                        </div>
+
+                        <script>
+                            // seleccionamos el valor de un input invisible
+                            // segun el valor, se despliega el rol
+                            $(document).ready(function () {
+                                let rol = $('#rol').val();
+                                if (rol == 1) {
+                                    $("#id_tipousuario option[value=1]").attr("selected", true);
+                                } else if (rol == 2) {
+                                    $("#id_tipousuario option[value=2]").attr("selected", true);
+                                } else if (rol == 3) {
+                                    $("#id_tipousuario option[value=3]").attr("selected", true);
+                                } else if (rol == 4) {
+                                    $("#id_tipousuario option[value=4]").attr("selected", true);
+                                }
+                            });
+                        </script>
+                        <div class="form-group mb-2">
+                            <label for="id_tipousuario">Rol</label>
+                            <select id="id_tipousuario" class="form-select" name="id_tipousuario">
+                                <option value="1">Administrador</option>
+                                <option value="2">Directivo</option>
+                                <option value="3">Parvulario</option>
+                                <option value="4">Apoderado</option>
+                            </select>
+                        </div>
+
+                        <script>
+                            // seleccionamos el valor de un input invisible
+                            // segun el valor, se despliega el rol
+                            $(document).ready(function () {
+                                let activo = $('#activo').val();
+                                if (activo == 'Si') {
+                                    $("#activado option[value=Si]").attr("selected", true);
+                                } else if (activo == 'No') {
+                                    $("#activado option[value=No]").attr("selected", true);
+                                }
+                            });
+                        </script>
+
+                        <div class="form-group mb-2">
+                            <label for="id_tipousuario">Activado</label>
+                            <select id="activado" class="form-select" name="activado">
+                                <option value="Si">Si</option>
+                                <option value="No">No</option>
+                            </select>
+                        </div> 
+
+                        <div class="form-group mb-2">
+                            <button class="btn btn-success w-100" id="editUser" disabled>Editar Usuario</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/js/sidebar.js" crossorigin="anonymous"></script>
+<script src="/js/editUserValidation.js" crossorigin="anonymous"></script>

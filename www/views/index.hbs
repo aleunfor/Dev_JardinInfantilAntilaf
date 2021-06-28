@@ -1,0 +1,97 @@
+<div class="container p-4">
+    <div class="row">
+        {{#if user}}
+        {{#when user.id_tipousuario 'eq' 1}}
+        <div class="col-md-4">
+            <div class="card mb-3" style="max-width: 540px;">
+                <div class="row g-0">
+                    <div class="col p-3">
+                        <img src="/img/usuarios.png" class="img-fluid rounded align-middle" style="font-size: xx-large;">
+                    </div>
+                    <div class="col col-auto w-75">
+                        <div class="card-body">
+                            <h6 class="fs-5">Usuarios Registrados</h6>
+                                {{#if totalUsuarios}}
+                                <p>Total {{totalUsuarios.usuarios}}</p>
+                                {{else}}
+                                <p>Total 0</p>
+                                {{/if}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-3" style="max-width: 540px;">
+                <div class="row g-0">
+                    <div class="col p-3">
+                        <img src="/img/comunicados.png" class="img-fluid rounded" style="font-size: xx-large;">
+                    </div>
+                    <div class="col col-auto w-75">
+                        <div class="card-body">
+                            <h6 class="fs-5">Comunicados Registrados</h6>
+                                {{#if totalComunicados}}
+                                <p>Total {{totalComunicados.comunicados}}</p>
+                                {{else}}
+                                <p>Total 0</p>
+                                {{/if}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-3" style="max-width: 540px;">
+                <div class="row g-0">
+                    <div class="col p-3">
+                        <img src="/img/comentarios.png" class="img-fluid rounded" style="font-size: xx-large;">
+                    </div>
+                    <div class="col col-auto w-75">
+                        <div class="card-body">
+                            <h6 class="fs-5">Comentarios Registrados</h6>
+                                {{#if totalComentarios}}
+                                <p>Total {{totalComentarios.comentarios}}</p>
+                                {{else}}
+                                <p>Total 0</p>
+                                {{/if}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{/when}}
+        {{/if}}
+
+        <div class="col-md-6 col sm-6">
+            <a style="background: #9a66ff; border-color: #9a66ff;" href="/comunicados/sala-cuna" class="btn btn-primary w-100"><i class="fas fa-baby" style="font-size: large;"></i> Sala Cuna</a>
+        </div>
+
+        <div class="col-md-6 col sm-6">
+            <a style="background: #ff4d4d; border-color: #ff4d4d;" href="/comunicados/nivel-medio" class="btn btn-primary w-100"><i class="fas fa-child" style="font-size: large;"></i> Nivel Medio</a>
+        </div>
+
+        {{#each comunicado}}
+        <div class="col-md-6">
+            <div class="card w-100 mt-3">
+                <div class="card-body">
+                    <a href="/comunicados/vercomunicado/{{idcomunicado}}">
+                        <h3 class="card-title">{{titulo}}</h3>
+                    </a>
+                    <h4>{{subtitulo}}</h4>
+                    <!--<div class="card-text m-2 contenido">
+                        {{{comunicado}}}
+                    </div>-->
+                    <p class="m-2">{{timeago fecha_creacion}}</p>
+                    <p class="m-2">{{autor}}</p>
+                </div>
+            </div>
+        </div>
+        {{else}}
+        <div class="row ms-1 col-md-12 mx-auto justify-content-center">
+            <div class="card card-body text-center">
+                <h1>Vaya! Aún no hay comunicados para mostrar!</h1>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>

@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <h1 class="mt-5">Editar mis datos</h1>
+            <form action="/editar-perfil" method="POST">
+                <div class="form-group mb-2">
+                    <input value="{{usuario.rut}}" type="text" class="form-control" name="rut" placeholder="RUT" autofocus>
+                </div>
+                <div class="form-group mb-2">
+                    <input value="{{usuario.nombre}}" type="text" class="form-control" name="nombre" placeholder="Nombre">
+                </div>
+                <div class="form-group mb-2">
+                    <input value="{{usuario.apellido}}" type="text" class="form-control" name="apellido" placeholder="Apellido">
+                </div>
+                <div class="form-group mb-2">
+                    <input value="{{usuario.fecha_nac}}" type="date" class="form-control" name="fecha_nac" placeholder="Fecha Nac">
+                </div>
+                <div class="form-group mb-2">
+                    <input value="{{usuario.direccion}}" type="text" class="form-control" name="direccion" placeholder="Dirección">
+                </div>
+                <div class="form-group mb-2">
+                    <input value="{{usuario.telefono}}" type="number" class="form-control" name="telefono" placeholder="Teléfono">
+                </div>
+                <div class="form-group mb-2">
+                    <input value="{{usuario.username}}" type="email" class="form-control" name="username" placeholder="Email">
+                </div>
+                <div class="form-group mb-2">
+                    <button class="btn btn-success w-100">Editar perfil</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

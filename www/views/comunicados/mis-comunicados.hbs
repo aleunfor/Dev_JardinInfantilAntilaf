@@ -1,0 +1,35 @@
+<div class="container p-4">
+    <div class="row">
+        <div class="col-sm-6 col-md-4 mx-auto mb-4">
+            <a class="btn btn-success w-100 mx-auto shadow-lg" href="/comunicados/agregar-comunicado"> 
+            <i class="fas fa-plus-square"></i>&nbsp;Nuevo comunicado</a>
+        </div>
+    </div>
+    <div class="row">
+        {{#each comunicado}}
+        <div class="col-md-6">
+            <div class="card w-100 mt-3">
+                <div class="card-body">
+                    <a href="/comunicados/vercomunicado/{{idcomunicado}}">
+                        <h3 class="card-title">{{titulo}}</h3>
+                    </a>
+                    <h4>{{subtitulo}}</h4>
+                    <!--<div class="card-text m-2 contenido">
+                        {{{comunicado}}}
+                    </div>-->
+                    <p class="m-2">{{timeago fecha_creacion}}</p>
+                    <a href="/comunicados/editar-comunicado/{{idcomunicado}}" class="btn btn-warning">Editar</a>
+                    <a href="/comunicados/eliminar/{{idcomunicado}}" class="btn btn-danger">Eliminar</a>
+                </div>
+            </div>
+        </div>
+        {{else}}
+        <div class="row ms-1 col-md-4 position-absolute top-50 start-50 translate-middle">
+            <div class="card card-body text-center">
+                <p>Vaya! Aún no has creado comunicados!</p>
+                <a class="btn btn-primary" href="/comunicados/agregar-comunicado">Crear tu primer comunicado</a>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>

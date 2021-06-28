@@ -1,0 +1,40 @@
+<div class="container p-4">
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+            <div class="card w-100">
+                <div class="card-body">
+                    <h3 class="fw-bold text-center">Mis datos</h3>
+                    <h5><span class="fw-bold">RUT: </span>{{user.rut}}</h4>
+                    <h5><span class="fw-bold">Nombre: </span>{{user.nombre}} {{user.apellido}}</h4>
+                    <h5><span class="fw-bold">Fecha de Nacimiento: </span>{{user.fecha_nac}}</h4>
+                    <h5><span class="fw-bold">Dirección: </span>{{user.direccion}}</h4>
+                    <h5><span class="fw-bold">Teléfono: </span>{{user.telefono}}</h4>
+                    <h5><span class="fw-bold">Email: </span>{{user.username}}</h4>
+                    <div class="btn-group" role="group" aria-label="Acciones Usuario">
+                    <a class="btn btn-primary" style="font-size: small;" href="/">Ver comunicados</a>
+                    <a class="btn btn-warning" style="font-size: small;" href="/editar-perfil">Editar mi perfil</a>
+                    {{#when user.id_tipousuario 'eq' 1}}
+                        <a class="btn btn-info" style="font-size: small;" href="/administrador/ver-usuarios">Panel de Control</a>
+                    {{/when}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{#each ninios}}
+        <div class="col-md-8 mx-auto">
+            <h2>Niños(as) Asignados</h2>
+            <div class="card w-100">
+                <div class="card-body">
+                    <h3>RUT: {{rut}}</h3>
+                    <h4>Nombre: {{nombre}} {{apellido}}</h4>
+                    <p>Sexo: {{sexo}}</p>
+                    <p>Fecha Nacimiento: {{fecha_nac}}</p>
+                    <p>Nivel {{nivel}}</p>
+                </div>
+            </div>
+        </div>
+        {{else}}
+
+        {{/each}}
+    </div>
+</div>

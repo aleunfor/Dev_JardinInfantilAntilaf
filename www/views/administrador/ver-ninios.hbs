@@ -1,0 +1,82 @@
+{{>navegacion-admin}}
+<div class="container">
+    <div class="col-md-8 mx-auto">
+        <div class="card mt-5 mb-3 mx-auto w-100">
+            <div class="card-body">
+                <h1 class="fw-bold">Niños(as) Registrados(as)</h1>
+            </div>
+        </div>
+    </div>
+    <div class="row usuarios-web">
+        <table class="table table-responsive mt-2">
+            <thead>
+                <tr>
+                    <th scope="col">RUT</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Apellido</th>
+                    <th scope="col">Edad</th>
+                    <th scope="col">Fecha Nacimiento</th>
+                    <th scope="col">Sexo</th>
+                    <th scope="col">Nivel</th>
+                    <th scope="col">Apoderado</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each nino}}
+                <tr>
+                    <th scope="row">{{rut}}</th>
+                    <td>{{nombre}}</td>
+                    <td>{{apellido}}</td>
+                    <td>{{edad}}</td>
+                    <td>{{fecha_nac}}</td>
+                    <td>{{sexo}}</td>
+                    <td>{{nivel}}</td>
+                    <td>{{nombreApoderado}} {{apellidoApoderado}}</td>
+                    <td class="tipouser">{{rol}}</td>
+                    <td><a href="/administrador/editar-ninio/{{rut}}" class="btn btn-warning">Editar</a></td>
+                    <td><a href="/administrador/eliminar-ninio/{{rut}}" class="btn btn-danger">Eliminar</a></td>
+                </tr>
+                {{else}}
+                <div class="row ms-1 col-md-4 position-absolute top-50 start-50 translate-middle">
+                    <div class="card card-body text-center">
+                        <p>Vaya! Aún no hay niños(as) Registrados(as) !</p>
+                        <a class="btn btn-primary" href="/comunicados/agregar-comunicado">Crear tu primer comunicado</a>
+                    </div>
+                </div>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+    <div class="row usuarios-mobile">
+
+        {{#each nino}}
+        <div class="col-md-6">
+            <div class="card mb-3 w-100">
+                <div class="card-body">
+                    <h5><span class="fw-bold">RUT: </span>{{rut}}</h5>
+                    <h6><span class="fw-bold">Nombre: </span>{{nombre}} {{apellido}}</h6>
+                    <p><span class="fw-bold">Edad: </span>{{edad}}</p>
+                    <p><span class="fw-bold">Fecha Nac.: </span>{{fecha_nac}}</p>
+                    <p><span class="fw-bold">Sexo: </span>{{sexo}}</p>
+                    <p><span class="fw-bold">Nivel: </span>{{nivel}}</p>
+                    <p class="d-inline"><span class="fw-bold">Apoderado: </span>
+                    <p id="tipouserMobile" class="d-inline">{{nombreApoderado}} {{apellidoApoderado}}</p>
+                    </p>
+                    <div class="btn-group" role="group" aria-label="Acciones Admin">
+                        <a href="/administrador/editar-ninio/{{rut}}" class="btn btn-warning">Editar</a>
+                        <a href="/administrador/eliminar-ninio/{{rut}}" class="btn btn-danger">Eliminar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{else}}
+        <div class="row ms-1 col-md-4 position-absolute top-50 start-50 translate-middle">
+            <div class="card card-body text-center">
+                <p>Vaya! Aún no hay niños(as) Registrados(as) !</p>
+                <a class="btn btn-primary" href="/administrador/agregar-ninio">Agregar Niño(a)</a>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>
+<script src="/js/sidebar.js" crossorigin="anonymous"></script>

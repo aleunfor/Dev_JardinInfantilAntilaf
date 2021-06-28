@@ -1,0 +1,65 @@
+{{>navegacion-admin}}
+<div class="container">
+    <div class="col-md-8 mx-auto">
+        <div class="card mt-5 mb-3 mx-auto w-100">
+            <div class="card-body">
+                <h1 class="fw-bold">Comunicados</h1>
+            </div>
+        </div>
+    </div>
+    <table class="table table-responsive comunicados-web">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Titulo</th>
+                <th scope="col">Subtitulo</th>
+                <th scope="col">Autor</th>
+                <th scope="col">Fecha Creación</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each comunicados}}
+            <tr>
+                <th scope="row">{{idcomunicado}}</th>
+                <td>{{titulo}}</td>
+                <td>{{subtitulo}}</td>
+                <td>{{autor}}</td>
+                <td>{{fecha_creacion}}</td>
+                <td><a href="/administrador/ver-comunicados/editar-comunicado/{{idcomunicado}}"
+                        class="btn btn-warning">Editar</a></td>
+                <td><a href="/administrador/ver-comunicados/eliminar-comunicado/{{idcomunicado}}" class="btn btn-danger">Eliminar</a>
+                </td>
+                <td><a href="/administrador/ver-comunicados/{{idcomunicado}}/ver-comentarios"
+                        class="btn btn-success">Comentarios</a></td>
+            </tr>
+            {{else}}
+            <div class="row ms-1 col-md-4 position-absolute top-50 start-50 translate-middle">
+                <div class="card card-body text-center">
+                    <p>Vaya! Aún no hay comunicados!</p>
+                    <a class="btn btn-primary" href="/comunicados/agregar-comunicado">Crear tu primer comunicado</a>
+                </div>
+            </div>
+            {{/each}}
+        </tbody>
+    </table>
+    <div class="row comunicados-mobile">
+        {{#each comunicados}}
+        <div class="col-md-6">
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5>{{titulo}}</h5>
+                    <h6>{{subtitulo}}</h6>
+                    <p>{{autor}}</p>
+                    <p>{{fecha_creacion}}</p>
+                    <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                        <a href="/administrador/ver-comunicados/eliminar-comunicado/{{idcomunicado}}" class="btn btn-danger">Eliminar</a>
+                        <a href="/administrador/ver-comunicados/editar-comunicado/{{idcomunicado}}" class="btn btn-warning">Editar</a>
+                        <a href="/administrador/ver-comunicados/{{idcomunicado}}/ver-comentarios" class="btn btn-success">Comentarios</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>
+<script src="/js/sidebar.js" crossorigin="anonymous"></script>
