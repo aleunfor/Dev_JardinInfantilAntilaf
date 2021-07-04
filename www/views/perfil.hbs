@@ -20,9 +20,9 @@
                 </div>
             </div>
         </div>
-        {{#each ninios}}
-        <div class="col-md-8 mx-auto mt-5">
-            <h2>Niños(as) Asignados</h2>
+        <div class="col-md-8 mx-auto mt-5"></div>
+        <h2>Niños(as) Asignados</h2>
+        {{#each ninios}}         
             <div class="card w-100">
                 <div class="card-body">
                     <h3><span class="fw-bold">RUT:</span> {{rut}}</h3>
@@ -31,9 +31,9 @@
                     <p><span class="fw-bold">Fecha Nacimiento:</span> {{fecha_nac}}</p>
                     <p><span class="fw-bold">Nivel:</span> {{nivel}}</p>
                 </div>
-            </div>
-        </div>
+            </div>     
         {{else}}
+        </div>
 
         {{/each}}
     </div>
