@@ -84,7 +84,7 @@ CkEditorImageBrowser.initFolderSwitcher = function () {
 
 	if (CkEditorImageBrowser.folders.length === 0) {
 		$switcher.remove();
-		CkEditorImageBrowser.$imagesContainer.text('No images.');
+		CkEditorImageBrowser.$imagesContainer.text('No hay imagenes para mostrar');
 	} else {
 		if (CkEditorImageBrowser.folders.length === 1) {
 			$switcher.hide();
@@ -104,6 +104,7 @@ CkEditorImageBrowser.renderImagesForFolder = function (folderName) {
 		var html = templateHtml;
 		html = html.replace('%imageUrl%', imageData.imageUrl);
 		html = html.replace('%thumbUrl%', imageData.thumbUrl);
+		html = html.replace('%linkUrl%', imageData.thumbUrl);
 
 		var $item = $($.parseHTML(html));
 

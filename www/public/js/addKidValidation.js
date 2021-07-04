@@ -13,7 +13,7 @@ $(function () {
             apellido: "required",
             edad: {
                 required: true,
-                minlength: 2
+                minlength: 1
             },
             fecha_nac: "required",
             sexo: "required",

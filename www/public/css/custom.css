@@ -53,18 +53,38 @@ a{
 }
 
 /*sidebar menu de admin*/
-#sidebar {
-    position: fixed;
-    width: 200px;
+.sidebar {
     height: 100%;
-    background: #ff6a66;
-    left: -200px;
-    z-index: 999;
+    width: 300px;
+    background-color: #fff;
+    position: fixed!important;
+    z-index: 1;
+    overflow: auto;
+    border: 2px solid #ff6a66;
+    margin: 5px 0px;
+    border-radius: 8px;
+    box-shadow: 0px 11px 30px -9px rgb(0 0 0 / 20%);
+    top:0px;
+}
+
+.btn-admin{
+    position: absolute;
+    top:125px;
+    left:50px;
+}
+
+.btn-cerrar{
+    text-align: left;
+    background-color: #f55161;
 }
 
 @media(max-width:1000px){
-    #sidebar{
+    .sidebar{
         display:none;
+    }
+
+    .btn-admin{
+        display: none;
     }
 }
 
@@ -72,7 +92,7 @@ a{
     left: 0;
 }
 
-#sidebar ul {
+.sidebar ul {
     color: rgba(230, 230, 230, .9);
     text-align: center;
     padding: 15px 10px;
@@ -80,7 +100,7 @@ a{
     border-bottom: 1px solid rgba(100, 100, 100, .3);
 }
 
-#sidebar li {
+.sidebar li {
     color: rgba(230, 230, 230, .9);
     text-align: center;
     padding: 15px 10px;

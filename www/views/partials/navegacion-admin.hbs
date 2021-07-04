@@ -1,9 +1,8 @@
-<div id="sidebar" class="active">
+<!--<div id="sidebar" class="active">
     <div class="toggle-btn">
         <span>&#9776;</span>
     </div>
     <ul>
-        </li>
         <li class="nav-item">
             <a class="nav-link" href="/administrador/ver-usuarios">Todos los usuarios</a>
         </li>
@@ -20,4 +19,26 @@
             <a class="nav-link" href="/administrador/ver-ninios">Ver Niños(as)</a>
         </li>
     </ul>
+</div>-->
+
+<!-- Sidebar -->
+<div id="mySidebar" class="sidebar w3-bar-block w3-border-right" style="display:none" id="mySidebar">
+    <button onclick="w3_close()" class="btn btn-danger btn-cerrar w-100">Cerrar &times;</button>
+    <ul>
+        <li class="nav">
+            <a class="nav-link item-admin" href="/administrador/ver-usuarios">Todos los usuarios</a>
+        </li>
+        <li class="nav">
+            <a class="nav-link item-admin" href="/administrador/agregar-usuario">Agregar Usuario</a>
+        </li>
+        <li class="nav">
+            <a class="nav-link item-admin" href="/administrador/ver-comunicados">Comunicados</a>
+        </li>
+        <li class="nav">
+            <a class="nav-link item-admin" href="/administrador/agregar-ninio">Agregar Niño(a)</a>
+        </li>
+        <li class="nav">
+            <a class="nav-link item-admin" href="/administrador/ver-ninios">Ver Niños(as)</a>
+        </li>
 </div>
+<button class="btn btn-primary btn-admin" onclick="w3_open()">Menu Admin &#9776;</button> 

@@ -249,7 +249,7 @@ router.post('/agregar-ninio', isLoggedIn, async (req, res) => {
             req.flash('error', 'El Niño(a) ya está registrado!');
             res.redirect('/administrador/agregar-ninio');
         } else {
-            await pool.query('INSERT INTO usuario SET ?', [newKid]);
+            await pool.query('INSERT INTO niño SET ?', [newKid]);
             req.flash('exito', 'Niño(a) agregado correctamente!');
             res.redirect('/administrador/ver-ninios');
         }
@@ -261,7 +261,7 @@ router.get('/ver-ninios', isLoggedIn, async (req, res) => {
         req.flash('error', 'Acceso restringido');
         res.redirect('/perfil');
     } else {
-        const nino = await pool.query('SELECT niño.rut, niño.nombre, niño.apellido, niño.sexo, nivel.nombre as nivel, usuario.nombre as nombreApoderado, usuario.apellido as apellidoApoderado FROM niño JOIN usuario ON usuario.idusuario = niño.usuario_idusuario JOIN nivel ON niño.nivel_idnivel = nivel.idnivel');
+        const nino = await pool.query('SELECT niño.rut, niño.nombre, niño.apellido, niño.edad, niño.fecha_nac, niño.sexo, nivel.nombre as nivel, usuario.nombre as nombreApoderado, usuario.apellido as apellidoApoderado FROM niño JOIN usuario ON usuario.idusuario = niño.usuario_idusuario JOIN nivel ON niño.nivel_idnivel = nivel.idnivel');
         res.render('administrador/ver-ninios', { nino });
     }
 });
@@ -272,13 +272,13 @@ router.get('/editar-ninio/:id', isLoggedIn ,async (req, res) =>{
         res.redirect('/perfil');
     }else{
         const { id } = req.params;
-        const ninos = await pool.query('SELECT niño.rut, niño.nombre, niño.apellido, niño.edad, niño.fecha_nac, niño.sexo, nivel.nombre, usuario.id as idApoderado, usuario.rut rutApoderado, usuario.nombre as nombreApoderado, usuario.apellido as apellidoApoderado FROM niño JOIN nivel ON niño.nivel_idnivel = nivel.idnivel JOIN usuario ON niño.usuario_idusuario = usuario.idusuario WHERE niño.rut = ?', [id]);
+        const ninos = await pool.query('SELECT niño.rut, niño.nombre, niño.apellido, niño.edad, niño.fecha_nac, niño.sexo, nivel.idnivel as nivel, usuario.idusuario as idApoderado, usuario.rut rutApoderado, usuario.nombre as nombreApoderado, usuario.apellido as apellidoApoderado FROM niño JOIN nivel ON niño.nivel_idnivel = nivel.idnivel JOIN usuario ON niño.usuario_idusuario = usuario.idusuario WHERE niño.rut =?', [id]);
         const apoderados = await pool.query('SELECT * FROM usuario WHERE id_tipousuario = 4')
-        res.render('administrador/editar-usuario', { nino: ninos[0], apoderados });
+        res.render('administrador/editar-ninio', { nino: ninos[0], apoderados });
     }
 });
 
-router.post('/editar-usuario/:id', isLoggedIn, async (req, res) => {
+router.post('/editar-ninio/:id', isLoggedIn, async (req, res) => {
     if (req.user.id_tipousuario != 1) {
         req.flash('error', 'Acceso restringido');
         res.redirect('/perfil');
@@ -295,7 +295,7 @@ router.post('/editar-usuario/:id', isLoggedIn, async (req, res) => {
             nivel_idnivel,
             usuario_idusuario
         };
-        await pool.query('UPDATE usuario SET ? WHERE idusuario = ? ', [editKid, id]);
+        await pool.query('UPDATE niño SET ? WHERE rut = ? ', [editKid, id]);
         req.flash('exito', 'Niño(a) editado correctamente!');
         res.redirect('/administrador/ver-ninios');
     }

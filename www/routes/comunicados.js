@@ -160,5 +160,21 @@ router.get('/imagenes', isLoggedIn, function (req, res){
     res.send(sorted);
 });
 
+router.post('/eliminar-imagen', isLoggedIn, (req, res) =>{
+    let fs = require('fs');
+    const { url } = req.body;
+    console.log(+url);
+        fs.unlink('www/public'+url, (err => {
+            if(err) {
+                res.send('<a href="http://localhost:4000/ckeditor/plugins/imagebrowser/browser/browser.html?listUrl=%2Fcomunicados%2Fimagenes&CKEditor=comunicado&CKEditorFuncNum=1&langCode=es">Volver</a>');
+                console.log('error');
+            }
+            else{
+                res.send('<a href="http://localhost:4000/ckeditor/plugins/imagebrowser/browser/browser.html?listUrl=%2Fcomunicados%2Fimagenes&CKEditor=comunicado&CKEditorFuncNum=1&langCode=es">Volver</a>');
+            }
+        }));
+
+});
+
 
 module.exports = router;
