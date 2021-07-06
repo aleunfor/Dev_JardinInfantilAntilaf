@@ -11,28 +11,16 @@ $(function () {
             titulo: "required",
             subtitulo: "required",
             comunicado: {
-                ckrequired: true,
-                minlength: 30
+                ckrequired: true
             },
             nivel_idnivel: "required"
-            /*email: {
-                required: true,
-                // Specify that email should be validated
-                // by the built-in "email" rule
-                email: true
-            },
-            password: {
-                required: true,
-                minlength: 5
-            }*/
         },
         // Specify validation error messages
         messages: {
             titulo: "<div class='alert alert-warning w-100' role='alert'>Porfavor Ingrese Titulo!</div>",
             subtitulo: "<div class='alert alert-warning w-100' role='alert'>Porfavor Ingrese Subtitulo! </div>",
             comunicado: {
-                ckrequired: "<div class='alert alert-warning w-100' role='alert'>Porfavor Ingrese Contenido!</div>",
-                minlength: "<div class='alert alert-warning w-100' role='alert'>Mínimo 30 carácteres </div>"
+                ckrequired: "<div class='alert alert-warning w-100' role='alert'>Porfavor Ingrese Contenido!</div>"
             },
             nivel_idnivel: "<div class='alert alert-warning w-100' role='alert'>Porfavor Ingrese un Nivel</div>"
             /*password: {

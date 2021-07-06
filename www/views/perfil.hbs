@@ -21,6 +21,7 @@
             </div>
         </div>
         <div class="col-md-8 mx-auto mt-5">
+        {{#if ninos}}
         <h2>Niños(as) Asignados</h2>
         {{#each ninios}}         
             <div class="card w-100">
@@ -31,9 +32,10 @@
                     <p><span class="fw-bold">Fecha Nacimiento:</span> {{fecha_nac}}</p>
                     <p><span class="fw-bold">Nivel:</span> {{nivel}}</p>
                 </div>
-            </div>     
-        {{else}}      
+            </div>              
         {{/each}}
+        {{else}}  
+        {{/if}} 
         </div>
     </div>
 </div>

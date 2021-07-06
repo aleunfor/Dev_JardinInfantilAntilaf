@@ -170,7 +170,7 @@ router.post('/eliminar-imagen', isLoggedIn, (req, res) =>{
                 console.log('error');
             }
             else{
-                res.send('<a href="http://localhost:4000/ckeditor/plugins/imagebrowser/browser/browser.html?listUrl=%2Fcomunicados%2Fimagenes&CKEditor=comunicado&CKEditorFuncNum=1&langCode=es">Volver</a>');
+                res.send('<h1 style="font-weight:bold;">Eliminado Correctamente!</h1><br><a href="http://localhost:4000/ckeditor/plugins/imagebrowser/browser/browser.html?listUrl=%2Fcomunicados%2Fimagenes&CKEditor=comunicado&CKEditorFuncNum=1&langCode=es">Volver</a>');
             }
         }));
 

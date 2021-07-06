@@ -55,7 +55,7 @@ router.post('/agregar-usuario', isLoggedIn, async (req, res) => {
     } else {
         if (correoRegistrado.length > 0 || rutRegistrado.length > 0) {
             req.flash('error', 'El correo y/o RUT ya está registrado!');
-            res.redirect('/administrador/ver-usuarios');
+            res.redirect('/administrador/agregar-usuario');
         } else {
             //Encriptar la contraseña
             newUser.password = await helpers.encryptPassword(password);
@@ -308,7 +308,7 @@ router.get('/eliminar-ninio/:id', isLoggedIn, async (req, res) => {
     } else {
         const { id } = req.params;
         await pool.query('DELETE FROM niño WHERE rut = ?', [id]);
-        req.flash('exito', 'Usuario eliminado correctamente!');
+        req.flash('exito', 'Niñ@ eliminado correctamente!');
         res.redirect('/administrador/ver-ninios');
     }
 });

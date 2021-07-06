@@ -9,8 +9,14 @@ $(function () {
             // of an input field. Validation rules are defined
             // on the right side
             rut: "required",
-            nombre: "required",
-            apellido: "required",
+            nombre: {
+                required:true,
+                maxlength: 45
+            },
+            apellido: {
+                required:true,
+                maxlength: 45
+            },
             edad: {
                 required: true,
                 minlength: 1
@@ -23,8 +29,14 @@ $(function () {
         // Specify validation error messages
         messages: {
             rut: "<div class='alert alert-warning w-100' role='alert'>Porfavor Ingrese RUT! </div>",
-            nombre: "<div class='alert alert-warning w-100' role='alert'>Porfavor Ingrese Nombre! </div>",
-            apellido: "<div class='alert alert-warning w-100' role='alert'>Porfavor Ingrese Apellido ! </div>",
+            nombre: {
+                required: "<div class='alert alert-warning w-100' role='alert'>Porfavor Ingrese Nombre! </div>",
+                maxlength: "<div class='alert alert-warning w-100' role='alert'>Máximo 45 carácteres! </div>"
+            },
+            apellido: {
+                required: "<div class='alert alert-warning w-100' role='alert'>Porfavor Ingrese Apellido ! </div>",
+                maxlength: "<div class='alert alert-warning w-100' role='alert'>Máximo 45 carácteres! </div>"
+            },
             edad: {
                 required: "<div class='alert alert-warning w-100' role='alert'>Porfavor Ingrese Edad! </div>",
                 minlength: "<div class='alert alert-warning w-100' role='alert'>Ingrese edad correcta! </div>"
