@@ -8,7 +8,7 @@ const helpers = require('../lib/helpers');
 
 router.get('/', async (req, res) => {
     const usuario = await pool.query('SELECT * FROM usuario');
-    const comunicado = await pool.query('SELECT * FROM comunicado');
+    const comunicado = await pool.query('SELECT * FROM comunicado ORDER BY DESC');
     const totalUsuarios = await pool.query('SELECT COUNT(idusuario) as usuarios FROM usuario');
     const totalComunicados = await pool.query('SELECT COUNT(idcomunicado) as comunicados FROM comunicado');
     const totalComentarios = await pool.query('SELECT COUNT(idcomentario) as comentarios FROM comentario');
