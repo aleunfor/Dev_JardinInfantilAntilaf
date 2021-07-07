@@ -37,7 +37,7 @@ router.post('/agregar-comunicado', isLoggedIn, async (req, res) => {
 });
 
 router.get('/mis-comunicados', isLoggedIn, async (req, res) => {
-    const comunicado = await pool.query('SELECT * FROM comunicado  idcomunicado WHERE idusuario = ?', [req.user.idusuario] + 'ORDER BY DESC');
+    const comunicado = await pool.query('SELECT * FROM comunicado  idcomunicado WHERE idusuario = ?', [req.user.idusuario] + 'ORDER BY idcomunicado DESC');
     res.render('comunicados/mis-comunicados', { comunicado });
 });
 
