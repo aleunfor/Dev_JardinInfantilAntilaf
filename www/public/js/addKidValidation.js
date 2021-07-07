@@ -17,8 +17,7 @@ $(function () {
             },
             fecha_nac: "required",
             sexo: "required",
-            nivel_idnivel: "required",
-            usuario_idusuario: "required"
+            nivel_idnivel: "required"
         },
         // Specify validation error messages
         messages: {
@@ -31,8 +30,7 @@ $(function () {
             },
             fecha_nac: "<div class='alert alert-warning w-100' role='alert'>Porfavor Ingrese Fecha de Nacimiento </div>",
             sexo: "<div class='alert alert-warning w-100' role='alert'>Porfavor Ingrese Sexo! </div>",
-            nivel_idnivel: "<div class='alert alert-warning w-100' role='alert'>Porfavor Ingrese Nivel! </div>",
-            usuario_idusuario: "<div class='alert alert-warning w-100' role='alert'>Porfavor Ingrese Apoderado! </div>",
+            nivel_idnivel: "<div class='alert alert-warning w-100' role='alert'>Porfavor Ingrese Nivel! </div>"
 
         },
         // Make sure the form is submitted to the destination defined

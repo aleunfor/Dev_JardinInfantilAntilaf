@@ -41,6 +41,7 @@
                         <div class="form-group mb-2">
                             <label for="usuario_idusuario">Apoderado</label>
                             <select class="form-select" name="usuario_idusuario">
+                                <option value="">Sin Asignar</option>
                                 {{#each apoderado}}
                                     <option value="{{idusuario}}">{{rut}} {{nombre}} {{apellido}}</option>
                                 {{/each}}
