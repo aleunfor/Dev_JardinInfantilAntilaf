@@ -17,9 +17,8 @@ passport.use('local.login', new LocalStrategy({
         const isActivo = activo[0];
         if (isActivo.activado == 'Si'){
             if (validPassword) {
-                console.log(activo[0]);
                 done(null, user, req.flash('exito', 'Bienvenido! ' + user.username));
-            } else if(activo[0] == 'No') {
+            } else {
                 done(null, false, req.flash('message', 'Contraseña incorrecta'));
             }
         }else{
