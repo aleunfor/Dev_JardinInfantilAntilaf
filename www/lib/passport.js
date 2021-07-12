@@ -22,7 +22,7 @@ passport.use('local.login', new LocalStrategy({
                 done(null, false, req.flash('message', 'Contraseña incorrecta'));
             }
         }else{
-            done(null, false, req.flash('message', 'El usuario no está activado, por contáctate con el Administrador!'));
+            done(null, false, req.flash('message', 'El usuario no está activo, por contáctate con el Administrador!'));
         }
         
     } else {
