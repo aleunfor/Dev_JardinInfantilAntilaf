@@ -80,10 +80,6 @@ app.use('/administrador', require('./routes/administrador'));
 // Archivos Publicos
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/favicon.ico', function(req, res) { 
-    res.sendStatus(204); 
-});
-
 //middleware pagina no encontrada
 app.use(function(req,res){
     res.status(404).render('404');

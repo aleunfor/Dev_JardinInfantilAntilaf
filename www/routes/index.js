@@ -36,4 +36,8 @@ router.post('/editar-perfil', isLoggedIn, async (req, res) =>{
     res.redirect('/perfil');
 });
 
+router.get('/favicon.ico', function(req, res) { 
+    res.sendStatus(204); 
+});
+
 module.exports = router;
