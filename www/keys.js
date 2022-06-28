@@ -7,5 +7,6 @@ module.exports = {
         connectTimeout: 60 * 60 * 1000,
         acquireTimeout: 60 * 60 * 1000,
         timeout: 60 * 60 * 1000,
+        port: 6092
     }
 }
