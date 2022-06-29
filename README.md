@@ -8,5 +8,5 @@ Debes contar con una base de datos MySQL, dentro del repositorio encontrás un s
 
 # Comandos
 
-npm run dev (modo debug) .\
-npm run start (modo producción)
+### `npm run dev` (modo debug)
+### `npm run start` (modo producción)
