@@ -10,3 +10,6 @@ Debes contar con una base de datos MySQL, dentro del repositorio encontrás un s
 
 ### `npm run dev` (modo debug)
 ### `npm run start` (modo producción)
+
+# Usuario default: admin@gmail.com
+# Contraseña: 1234
