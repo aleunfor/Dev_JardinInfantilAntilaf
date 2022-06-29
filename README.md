@@ -1,6 +1,6 @@
 # Libreta Digital Jardin Antilaf
 
-Aplicación creada con NodeJS y el framework ExpressJS, que tiene como por objetivo informar y dar comunicados a los padres y/o apoderados de los niños del Jardin y Sala cuna Antilaf.
+Aplicación creada con NodeJS y el framework ExpressJS, que tiene como por objetivo informar y dar comunicados a los padres y/o apoderados de los niños del Jardin y Sala cuna Antilaf, con un sistema CRUD para los administradores.
 
 # Antes de empezar
 
